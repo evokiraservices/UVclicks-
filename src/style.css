@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-50: #fbf7e6;
+  --color-gold-100: #f5eebd;
+  --color-gold-200: #ebd982;
+  --color-gold-300: #dec14c;
+  --color-gold-400: #d4ac29;
+  --color-gold-500: #c5971a;
+  --color-gold-600: #a77a13;
+  --color-gold-700: #855d11;
+  --color-gold-800: #6a4911;
+  --color-gold-900: #573c12;
+  --color-gold-950: #332007;
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5971a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4ac29;
+}
+
+body {
+  background-color: #030303;
+  color: #f5f5f5;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  border-color: rgba(197, 151, 26, 0.3);
+}
+
+/* Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f5eebd 0%, #c5971a 50%, #855d11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbar when loading */
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Canvas positioning */
+#scroll-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
