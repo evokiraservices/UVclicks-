@@ -332,8 +332,18 @@ function initCustomCursor() {
     flash.style.left = `${e.clientX}px`;
     flash.style.top = `${e.clientY}px`;
     document.body.appendChild(flash);
-
     setTimeout(() => flash.remove(), 400);
+
+    // Camera Shutter Screen Flash
+    const screenFlash = document.createElement('div');
+    screenFlash.className = 'screen-flash';
+    document.body.appendChild(screenFlash);
+    gsap.to(screenFlash, {
+      opacity: 0,
+      duration: 0.35,
+      ease: 'power2.out',
+      onComplete: () => screenFlash.remove()
+    });
   });
 
   window.addEventListener('mouseup', () => {

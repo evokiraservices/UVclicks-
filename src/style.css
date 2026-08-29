@@ -132,3 +132,16 @@ body.loading {
     opacity: 0;
   }
 }
+
+/* Screen Shutter Flash Overlay */
+.screen-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.35); /* bright translucent flash */
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 1;
+}
