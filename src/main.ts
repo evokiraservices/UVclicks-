@@ -314,30 +314,30 @@ function initApp() {
 }
 
 function initCustomCursor() {
-  const cursorDot = document.getElementById('custom-cursor');
-  const cursorRing = document.getElementById('custom-cursor-ring');
+  const cursor = document.getElementById('custom-cursor');
+  if (!cursor) return;
 
-  if (!cursorDot || !cursorRing) return;
-
-  let mouseX = -100;
-  let mouseY = -100;
-  let ringX = -100;
-  let ringY = -100;
-
+  // Track position
   window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Position dot instantly
-    gsap.set(cursorDot, { x: mouseX, y: mouseY });
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
   });
 
-  // Position ring with smoothing delay using GSAP ticker
-  gsap.ticker.add(() => {
-    const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio());
-    ringX += (mouseX - ringX) * dt;
-    ringY += (mouseY - ringY) * dt;
-    gsap.set(cursorRing, { x: ringX, y: ringY });
+  // Interactive Shutter Animation on Click
+  window.addEventListener('mousedown', (e) => {
+    gsap.to(cursor, { scale: 0.85, duration: 0.08 });
+    
+    const flash = document.createElement('div');
+    flash.className = 'flash-ring';
+    flash.style.left = `${e.clientX}px`;
+    flash.style.top = `${e.clientY}px`;
+    document.body.appendChild(flash);
+
+    setTimeout(() => flash.remove(), 400);
+  });
+
+  window.addEventListener('mouseup', () => {
+    gsap.to(cursor, { scale: 1.0, duration: 0.08 });
   });
 
   // Interactive Hover Effects
@@ -345,25 +345,11 @@ function initCustomCursor() {
   
   interactives.forEach((el) => {
     el.addEventListener('mouseenter', () => {
-      gsap.to(cursorDot, { scale: 1.5, backgroundColor: '#d4ac29', duration: 0.2 });
-      gsap.to(cursorRing, { 
-        width: 48, 
-        height: 48, 
-        borderColor: 'rgba(197, 151, 26, 1)', 
-        backgroundColor: 'rgba(197, 151, 26, 0.1)', 
-        duration: 0.2 
-      });
+      gsap.to(cursor, { scale: 1.25, filter: 'drop-shadow(0 4px 15px rgba(197, 151, 26, 0.4))', duration: 0.2 });
     });
 
     el.addEventListener('mouseleave', () => {
-      gsap.to(cursorDot, { scale: 1, backgroundColor: '#c5971a', duration: 0.2 });
-      gsap.to(cursorRing, { 
-        width: 32, 
-        height: 32, 
-        borderColor: 'rgba(197, 151, 26, 0.4)', 
-        backgroundColor: 'rgba(197, 151, 26, 0)', 
-        duration: 0.2 
-      });
+      gsap.to(cursor, { scale: 1.0, filter: 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4))', duration: 0.2 });
     });
   });
 }

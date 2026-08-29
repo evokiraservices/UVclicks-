@@ -88,7 +88,7 @@ body.loading {
 }
 
 /* Custom Cursor Styles */
-#custom-cursor, #custom-cursor-ring {
+#custom-cursor {
   display: none;
 }
 
@@ -102,27 +102,33 @@ body.loading {
     position: fixed;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
-    background-color: #c5971a; /* gold-500 */
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
+    transition: transform 0.08s ease-out, filter 0.2s ease;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
   }
 
-  #custom-cursor-ring {
-    display: block;
+  /* Trailing Shutter Flash Effect */
+  .flash-ring {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid rgba(197, 151, 26, 0.4); /* gold-500/40 */
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid #c5971a; /* gold-500 */
     border-radius: 50%;
     pointer-events: none;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    animation: flash-out 0.4s ease-out forwards;
     z-index: 99998;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  }
+}
+
+@keyframes flash-out {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
   }
 }
