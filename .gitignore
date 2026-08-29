@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Local MCP secrets
+.agents/mcp_config.json
