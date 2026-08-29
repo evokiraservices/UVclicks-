@@ -35,50 +35,44 @@
       </div>
     </div>
 
-    <!-- Desktop Left Sidebar Navigation -->
-    <aside class="hidden md:flex fixed top-0 left-0 h-screen w-28 z-50 flex-col justify-between items-center py-8 border-r border-white/5 bg-neutral-950/80 backdrop-blur-xl">
-      <!-- Logo -->
-      <a href="index.html" class="flex flex-col items-center gap-1 group">
-        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain transition-transform duration-500 group-hover:rotate-6" />
-        <span class="font-serif text-[10px] font-medium tracking-[0.2em] text-white group-hover:text-gold-400 transition-colors duration-300 uppercase mt-1">UVclicks</span>
-      </a>
+    <!-- Floating Header Navigation -->
+    <header class="fixed top-4 left-4 right-4 z-50 flex justify-center transition-all duration-300">
+      <div class="w-full max-w-7xl glass border border-white/10 rounded-full px-6 py-3 md:py-4 flex justify-between items-center shadow-lg">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain transition-transform duration-500 group-hover:rotate-6" />
+          <span class="font-serif text-lg font-medium tracking-widest text-white group-hover:text-gold-400 transition-colors duration-300">UVclicks</span>
+        </a>
 
-      <!-- Horizontal Links stacked vertically -->
-      <nav class="flex flex-col gap-10 items-center py-6 w-full">
-        <a href="about.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
-          Philosophy
-        </a>
-        <a href="services.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
-          Services
-        </a>
-        <a href="gallery.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
-          Gallery
-        </a>
-        <a href="contact.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
-          Contact
-        </a>
-      </nav>
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="about.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase">
+            Philosophy
+          </a>
+          <a href="services.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase">
+            Services
+          </a>
+          <a href="gallery.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase">
+            Gallery
+          </a>
+          <a href="contact.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase">
+            Contact
+          </a>
+        </nav>
 
-      <!-- Bottom Button / Action -->
-      <div class="flex flex-col items-center px-4 w-full">
-        <a href="contact.html" class="w-full py-2.5 rounded-full border border-gold-500/30 text-[9px] font-semibold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black hover:border-gold-500 transition-all duration-300 shadow-[0_0_15px_rgba(197,151,26,0.1)] hover:shadow-[0_0_25px_rgba(197,151,26,0.3)] text-center whitespace-nowrap">
-          Book Now
-        </a>
+        <!-- Desktop Book Now CTA -->
+        <div class="hidden md:block">
+          <a href="contact.html" class="px-6 py-2.5 rounded-full border border-gold-500/30 text-[9px] font-semibold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black hover:border-gold-500 transition-all duration-300 shadow-[0_0_15px_rgba(197,151,26,0.1)] hover:shadow-[0_0_25px_rgba(197,151,26,0.3)] whitespace-nowrap">
+            Book Now
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50 text-white cursor-pointer">
+          <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+          <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        </button>
       </div>
-    </aside>
-
-    <!-- Mobile Top Navigation Header -->
-    <header class="md:hidden fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300 py-4 px-6 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain" />
-        <span class="font-serif text-lg font-medium tracking-widest text-white">UVclicks</span>
-      </a>
-      
-      <!-- Hamburger Menu Button -->
-      <button id="mobile-menu-btn" class="w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50 text-white cursor-pointer">
-        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
-        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
-      </button>
     </header>
 
     <!-- Mobile Navigation Drawer -->
@@ -95,7 +89,7 @@
     </div>
 
     <!-- MAIN SCROLL CONTAINER FOR THE HERO & VIDEO SEQUENCE -->
-    <main class="relative w-full md:pl-28">
+    <main class="relative w-full">
       
       <!-- The Pinned Section -->
       <div id="hero-scroll-container" class="relative w-full h-screen bg-black overflow-hidden">
