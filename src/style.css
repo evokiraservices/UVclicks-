@@ -86,3 +86,43 @@ body.loading {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
 }
+
+/* Custom Cursor Styles */
+#custom-cursor, #custom-cursor-ring {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, input, textarea, select, [role="button"], .gallery-filter-btn {
+    cursor: none !important;
+  }
+
+  #custom-cursor {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: #c5971a; /* gold-500 */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+  }
+
+  #custom-cursor-ring {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(197, 151, 26, 0.4); /* gold-500/40 */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  }
+}

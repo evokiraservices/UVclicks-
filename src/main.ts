@@ -308,6 +308,64 @@ function initApp() {
       }
     });
   });
+
+  // Custom Cursor Initialization
+  initCustomCursor();
+}
+
+function initCustomCursor() {
+  const cursorDot = document.getElementById('custom-cursor');
+  const cursorRing = document.getElementById('custom-cursor-ring');
+
+  if (!cursorDot || !cursorRing) return;
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Position dot instantly
+    gsap.set(cursorDot, { x: mouseX, y: mouseY });
+  });
+
+  // Position ring with smoothing delay using GSAP ticker
+  gsap.ticker.add(() => {
+    const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio());
+    ringX += (mouseX - ringX) * dt;
+    ringY += (mouseY - ringY) * dt;
+    gsap.set(cursorRing, { x: ringX, y: ringY });
+  });
+
+  // Interactive Hover Effects
+  const interactives = document.querySelectorAll('a, button, .gallery-item, .gallery-filter-btn, input, textarea, [role="button"]');
+  
+  interactives.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      gsap.to(cursorDot, { scale: 1.5, backgroundColor: '#d4ac29', duration: 0.2 });
+      gsap.to(cursorRing, { 
+        width: 48, 
+        height: 48, 
+        borderColor: 'rgba(197, 151, 26, 1)', 
+        backgroundColor: 'rgba(197, 151, 26, 0.1)', 
+        duration: 0.2 
+      });
+    });
+
+    el.addEventListener('mouseleave', () => {
+      gsap.to(cursorDot, { scale: 1, backgroundColor: '#c5971a', duration: 0.2 });
+      gsap.to(cursorRing, { 
+        width: 32, 
+        height: 32, 
+        borderColor: 'rgba(197, 151, 26, 0.4)', 
+        backgroundColor: 'rgba(197, 151, 26, 0)', 
+        duration: 0.2 
+      });
+    });
+  });
 }
 
 // Start preloading frames
