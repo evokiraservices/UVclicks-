@@ -25,7 +25,6 @@ function drawFrame(imgIndex: number) {
   const img = images[imgIndex];
   if (!img) return;
 
-  ctx.clearRect(0, 0, imgWidth, imgHeight);
   ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
 }
 
@@ -120,7 +119,7 @@ function initApp() {
       trigger: "#hero-scroll-container",
       start: "top top",
       end: "+=4500", // Scroll length
-      scrub: 1, // Smooth scrub catch-up (adds inertia and removes laggy scroll jumps)
+      scrub: 0.3, // Smooth scrub catch-up (adds inertia and removes laggy scroll jumps)
       pin: true,
     },
     onUpdate: () => {
