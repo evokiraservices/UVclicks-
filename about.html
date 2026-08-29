@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophy | UVclicks</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-neutral-950 text-neutral-200">
+
+    <!-- Desktop Left Sidebar Navigation -->
+    <aside class="hidden md:flex fixed top-0 left-0 h-screen w-28 z-50 flex-col justify-between items-center py-8 border-r border-white/5 bg-neutral-950/80 backdrop-blur-xl">
+      <!-- Logo -->
+      <a href="index.html" class="flex flex-col items-center gap-1 group">
+        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain transition-transform duration-500 group-hover:rotate-6" />
+        <span class="font-serif text-[10px] font-medium tracking-[0.2em] text-white group-hover:text-gold-400 transition-colors duration-300 uppercase mt-1">UVclicks</span>
+      </a>
+
+      <!-- Horizontal Links stacked vertically -->
+      <nav class="flex flex-col gap-10 items-center py-6 w-full">
+        <a href="about.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Philosophy
+        </a>
+        <a href="services.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Services
+        </a>
+        <a href="gallery.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Gallery
+        </a>
+        <a href="contact.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Bottom Button / Action -->
+      <div class="flex flex-col items-center px-4 w-full">
+        <a href="contact.html" class="w-full py-2.5 rounded-full border border-gold-500/30 text-[9px] font-semibold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black hover:border-gold-500 transition-all duration-300 shadow-[0_0_15px_rgba(197,151,26,0.1)] hover:shadow-[0_0_25px_rgba(197,151,26,0.3)] text-center whitespace-nowrap">
+          Book Now
+        </a>
+      </div>
+    </aside>
+
+    <!-- Mobile Top Navigation Header -->
+    <header class="md:hidden fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300 py-4 px-6 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain" />
+        <span class="font-serif text-lg font-medium tracking-widest text-white">UVclicks</span>
+      </a>
+      
+      <!-- Hamburger Menu Button -->
+      <button id="mobile-menu-btn" class="w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50 text-white cursor-pointer">
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="md:hidden fixed inset-0 z-40 bg-neutral-950/95 backdrop-blur-2xl transform -translate-x-full transition-transform duration-500 flex flex-col justify-center items-center py-12 px-6">
+      <nav class="flex flex-col gap-8 text-center mb-12">
+        <a href="about.html" class="mobile-drawer-link font-serif text-2xl text-gold-400 transition-colors duration-300">Philosophy</a>
+        <a href="services.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Services</a>
+        <a href="gallery.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Gallery</a>
+        <a href="contact.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Contact</a>
+      </nav>
+      <a href="contact.html" class="mobile-drawer-link px-8 py-3 rounded-full border border-gold-500 text-xs font-bold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black transition-all duration-300">
+        Book Session
+      </a>
+    </div>
+
+    <!-- MAIN SCROLL CONTAINER -->
+    <main class="relative w-full md:pl-28 pt-20 md:pt-0">
+      
+      <!-- SECTION 2: THE PHILOSOPHY / ABOUT -->
+      <section id="about" class="relative py-24 md:py-36 px-6 md:px-12 bg-neutral-950 overflow-hidden min-h-screen flex items-center">
+        <!-- Abstract background elements -->
+        <div class="absolute right-0 top-1/4 w-96 h-96 bg-gold-850/5 rounded-full filter blur-[100px] pointer-events-none"></div>
+        <div class="absolute left-10 bottom-10 w-80 h-80 bg-neutral-900/40 rounded-full filter blur-[80px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase block mb-4">Who We Are</span>
+            <h2 class="font-serif text-4xl md:text-5xl text-white tracking-wide mb-8 leading-tight">
+              A Symphony of Light, Motion, and Emotion.
+            </h2>
+            <p class="text-neutral-400 leading-relaxed mb-6 font-sans">
+              At <strong class="text-white">UVclicks</strong>, we believe photography and videography aren't just technical services. They are the fine art of storytelling. Guided by this vision, we specialize in high-end cinematic wedding shoots, editorial fashion campaigns, and immersive commercial videography.
+            </p>
+            <p class="text-neutral-400 leading-relaxed mb-8 font-sans">
+              We leverage top-tier optics, customized lighting, and creative direction to isolate details that tell a larger story. Whether it is the quiet, nervous smile before a wedding vow or the sharp, styled silhouette of a brand model, we capture it with precision.
+            </p>
+            <div class="flex flex-wrap gap-8">
+              <div>
+                <h4 class="text-3xl font-serif text-gold-400 font-bold mb-1">150+</h4>
+                <p class="text-neutral-500 text-[10px] tracking-widest uppercase">Projects Delivered</p>
+              </div>
+              <div class="w-[1px] h-12 bg-white/10"></div>
+              <div>
+                <h4 class="text-3xl font-serif text-gold-400 font-bold mb-1">8+</h4>
+                <p class="text-neutral-500 text-[10px] tracking-widest uppercase">Years Experience</p>
+              </div>
+              <div class="w-[1px] h-12 bg-white/10"></div>
+              <div>
+                <h4 class="text-3xl font-serif text-gold-400 font-bold mb-1">100%</h4>
+                <p class="text-neutral-500 text-[10px] tracking-widest uppercase">Client Delight</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-gold-500 to-gold-800 rounded-2xl opacity-10 group-hover:opacity-20 blur-xl transition-all duration-700"></div>
+            <div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 glass-card p-2 flex items-center justify-center bg-black/40">
+              <!-- Nested Frame representing premium lens -->
+              <div class="w-full h-full border border-white/5 rounded-xl overflow-hidden relative flex flex-col justify-center items-center text-center p-8 bg-neutral-900/60">
+                <svg class="w-16 h-16 text-gold-500/40 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <h3 class="font-serif text-xl text-white mb-2">Cinematic Vision</h3>
+                <p class="text-xs text-neutral-400 max-w-sm">Every wedding shoot and commercial project is framed as an individual cinematic production.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="py-12 bg-neutral-950 border-t border-white/5 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-3">
+            <img src="/logo.png" alt="UVclicks Logo" class="w-6 h-6 object-contain" />
+            <span class="font-serif text-sm tracking-widest text-white uppercase">UVclicks</span>
+          </div>
+          
+          <div class="text-neutral-500 text-[10px] tracking-wider uppercase font-sans text-center">
+            &copy; 2026 UVclicks Photography & Cinematography. All rights reserved.
+          </div>
+          
+          <div class="flex gap-6 text-neutral-400 text-xs">
+            <a href="#" class="hover:text-gold-400 transition-colors">Instagram</a>
+            <a href="#" class="hover:text-gold-400 transition-colors">YouTube</a>
+            <a href="#" class="hover:text-gold-400 transition-colors">Vimeo</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- Main Logic Bundle -->
+    <script type="module" src="/src/subpage.ts"></script>
+  </body>
+</html>

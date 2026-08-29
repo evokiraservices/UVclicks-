@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | UVclicks</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-black text-neutral-200">
+
+    <!-- Desktop Left Sidebar Navigation -->
+    <aside class="hidden md:flex fixed top-0 left-0 h-screen w-28 z-50 flex-col justify-between items-center py-8 border-r border-white/5 bg-neutral-950/80 backdrop-blur-xl">
+      <!-- Logo -->
+      <a href="index.html" class="flex flex-col items-center gap-1 group">
+        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain transition-transform duration-500 group-hover:rotate-6" />
+        <span class="font-serif text-[10px] font-medium tracking-[0.2em] text-white group-hover:text-gold-400 transition-colors duration-300 uppercase mt-1">UVclicks</span>
+      </a>
+
+      <!-- Horizontal Links stacked vertically -->
+      <nav class="flex flex-col gap-10 items-center py-6 w-full">
+        <a href="about.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Philosophy
+        </a>
+        <a href="services.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Services
+        </a>
+        <a href="gallery.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-neutral-400 hover:text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Gallery
+        </a>
+        <a href="contact.html" class="nav-sidebar-link text-[10px] font-medium tracking-[0.2em] text-gold-400 transition-all duration-300 uppercase hover:translate-x-1 block py-1 w-full text-center">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Bottom Button / Action -->
+      <div class="flex flex-col items-center px-4 w-full">
+        <a href="contact.html" class="w-full py-2.5 rounded-full border border-gold-500/30 text-[9px] font-semibold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black hover:border-gold-500 transition-all duration-300 shadow-[0_0_15px_rgba(197,151,26,0.1)] hover:shadow-[0_0_25px_rgba(197,151,26,0.3)] text-center whitespace-nowrap">
+          Book Now
+        </a>
+      </div>
+    </aside>
+
+    <!-- Mobile Top Navigation Header -->
+    <header class="md:hidden fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300 py-4 px-6 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/logo.png" alt="UVclicks" class="w-8 h-8 object-contain" />
+        <span class="font-serif text-lg font-medium tracking-widest text-white">UVclicks</span>
+      </a>
+      
+      <!-- Hamburger Menu Button -->
+      <button id="mobile-menu-btn" class="w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50 text-white cursor-pointer">
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="md:hidden fixed inset-0 z-40 bg-neutral-950/95 backdrop-blur-2xl transform -translate-x-full transition-transform duration-500 flex flex-col justify-center items-center py-12 px-6">
+      <nav class="flex flex-col gap-8 text-center mb-12">
+        <a href="about.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Philosophy</a>
+        <a href="services.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Services</a>
+        <a href="gallery.html" class="mobile-drawer-link font-serif text-2xl text-neutral-300 hover:text-gold-400 transition-colors duration-300">Gallery</a>
+        <a href="contact.html" class="mobile-drawer-link font-serif text-2xl text-gold-400 transition-colors duration-300">Contact</a>
+      </nav>
+      <a href="contact.html" class="mobile-drawer-link px-8 py-3 rounded-full border border-gold-500 text-xs font-bold tracking-widest text-gold-400 uppercase bg-gold-950/20 hover:bg-gold-500 hover:text-black transition-all duration-300">
+        Book Session
+      </a>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="relative w-full md:pl-28 pt-20 md:pt-0">
+      
+      <!-- SECTION 5: CONTACT FORM -->
+      <section id="contact" class="relative py-24 md:py-36 px-6 md:px-12 bg-black min-h-screen flex items-center">
+        <div class="absolute inset-x-0 bottom-0 h-96 bg-gold-950/5 filter blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-16 border border-white/5 relative w-full">
+          <div class="absolute top-8 right-8 pointer-events-none hidden md:block">
+            <!-- Decorative camera aperture vector element -->
+            <svg class="w-24 h-24 text-gold-500/5 animate-[spin_40s_linear_infinite]" fill="currentColor" viewBox="0 0 100 100">
+              <path d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 8c23.2 0 42 18.8 42 42S73.2 92 50 92 8 73.2 8 50 26.8 8 50 8zm-8 16.5L66.7 45H42V24.5zm19.3 5L77.5 45H61.3zM25.5 50h36.7L42.5 69.5l-17-19.5zM38.7 75.5L14.5 55h48.4L38.7 75.5zm19.3-5L77.5 55H61.3z" />
+            </svg>
+          </div>
+          
+          <div class="text-center max-w-xl mx-auto mb-12">
+            <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase block mb-4">Book A Session</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-white tracking-wide mb-4">Expose your story.</h2>
+            <p class="text-neutral-400 text-xs md:text-sm">
+              Ready to create something legendary? Share the details of your vision, and we will get back to you within 24 hours.
+            </p>
+          </div>
+          
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="name" class="text-[10px] tracking-widest text-neutral-400 uppercase font-bold">Your Name</label>
+                <input type="text" id="name" required class="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors duration-300" placeholder="e.g. John Doe" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="email" class="text-[10px] tracking-widest text-neutral-400 uppercase font-bold">Email Address</label>
+                <input type="email" id="email" required class="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors duration-300" placeholder="name@domain.com" />
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="phone" class="text-[10px] tracking-widest text-neutral-400 uppercase font-bold">Phone Number</label>
+                <input type="tel" id="phone" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors duration-300" placeholder="+91 XXXXX XXXXX" />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="shoot-type" class="text-[10px] tracking-widest text-neutral-400 uppercase font-bold">Session Type</label>
+                <select id="shoot-type" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors duration-300">
+                  <option value="wedding">Cinematic Wedding Shoot</option>
+                  <option value="pre-wedding">Pre-Wedding Shoot</option>
+                  <option value="editorial">Fashion / Brand Campaign</option>
+                  <option value="other">Other Event Videography</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-[10px] tracking-widest text-neutral-400 uppercase font-bold">Describe Your Vision</label>
+              <textarea id="message" rows="4" required class="w-full bg-neutral-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors duration-300 placeholder:text-neutral-600" placeholder="Provide details about dates, locations, and the artistic direction you have in mind..."></textarea>
+            </div>
+            
+            <div class="text-center pt-4">
+              <button type="submit" class="px-8 py-4 bg-gradient-to-r from-gold-600 via-gold-500 to-gold-700 text-black hover:scale-[1.02] active:scale-[0.98] text-xs font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-[0_0_25px_rgba(197,151,26,0.25)] hover:shadow-[0_0_35px_rgba(197,151,26,0.5)] cursor-pointer">
+                Submit Consultation Request
+              </button>
+            </div>
+          </form>
+          
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="py-12 bg-neutral-950 border-t border-white/5 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-3">
+            <img src="/logo.png" alt="UVclicks Logo" class="w-6 h-6 object-contain" />
+            <span class="font-serif text-sm tracking-widest text-white uppercase">UVclicks</span>
+          </div>
+          
+          <div class="text-neutral-500 text-[10px] tracking-wider uppercase font-sans text-center">
+            &copy; 2026 UVclicks Photography & Cinematography. All rights reserved.
+          </div>
+          
+          <div class="flex gap-6 text-neutral-400 text-xs">
+            <a href="#" class="hover:text-gold-400 transition-colors">Instagram</a>
+            <a href="#" class="hover:text-gold-400 transition-colors">YouTube</a>
+            <a href="#" class="hover:text-gold-400 transition-colors">Vimeo</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- Main Logic Bundle -->
+    <script type="module" src="/src/subpage.ts"></script>
+  </body>
+</html>
