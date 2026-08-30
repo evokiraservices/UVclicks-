@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Markello';
+  src: url('/fonts/Markello-Regular.ttf') format('truetype'),
+       url('/fonts/Markello-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-gold-50: #fbf7e6;
   --color-gold-100: #f5eebd;
@@ -13,7 +22,7 @@
   --color-gold-900: #573c12;
   --color-gold-950: #332007;
   
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Markello', 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
