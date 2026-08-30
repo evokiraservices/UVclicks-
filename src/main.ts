@@ -82,10 +82,9 @@ function initApp() {
       
       // Animate Navbar and first overlay on load
       gsap.from("header, aside", { opacity: 0, y: -20, duration: 1, ease: "power2.out" });
-      gsap.from("#overlay-1 img, #overlay-1 h1, #overlay-1 p", {
+      gsap.from("#overlay-1 img", {
         opacity: 0,
         y: 30,
-        stagger: 0.2,
         duration: 1.2,
         ease: "power3.out"
       });
