@@ -293,15 +293,13 @@ function initApp() {
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('text-white');
-      link.classList.add('text-neutral-500');
+      link.classList.remove('active');
       
       const href = link.getAttribute('href');
       if (href) {
         const sectionId = href.substring(1);
         if (current === sectionId || (!current && sectionId === 'about')) {
-          link.classList.remove('text-neutral-500');
-          link.classList.add('text-white');
+          link.classList.add('active');
         }
       }
     });

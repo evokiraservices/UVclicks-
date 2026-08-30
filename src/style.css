@@ -184,3 +184,28 @@ body.loading {
 .film-strip::after {
   right: 6px;
 }
+
+/* Film Frame Blocks inside Sidebar */
+.film-frame-block {
+  width: 100px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.film-frame-block:hover {
+  background-color: #ebd982; /* gold-200 / warm light gold */
+  transform: scale(1.05);
+}
+
+.film-frame-block.active {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
