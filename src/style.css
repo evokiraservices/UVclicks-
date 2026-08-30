@@ -188,7 +188,7 @@ body.loading {
 /* Film Frame Blocks inside Sidebar */
 .film-frame-block {
   width: 100px;
-  background-color: #ffffff;
+  background-color: #c5971a;
   color: #000000;
   border-radius: 2px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
@@ -200,12 +200,13 @@ body.loading {
 }
 
 .film-frame-block:hover {
-  background-color: #ebd982; /* gold-200 / warm light gold */
+  background-color: #ffffff;
+  color: #000000;
   transform: scale(1.05);
 }
 
 .film-frame-block.active {
   background-color: #000000;
   color: #ffffff;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid #c5971a;
 }
