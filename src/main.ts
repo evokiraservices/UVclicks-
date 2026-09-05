@@ -305,6 +305,62 @@ function initApp() {
     });
   });
 
+  // Tilted Photo Marquee Scroll Motion Animation
+  const marqueeRow1 = document.querySelector('.marquee-row-1');
+  const marqueeRow2 = document.querySelector('.marquee-row-2');
+  const marqueeStage = document.querySelector('.marquee-stage');
+
+  if (marqueeRow1 && marqueeRow2) {
+    // Row 1 glides left continuously
+    const tween1 = gsap.to(marqueeRow1, {
+      xPercent: -50,
+      repeat: -1,
+      duration: 35,
+      ease: "none"
+    });
+
+    // Row 2 glides right continuously
+    gsap.set(marqueeRow2, { xPercent: -50 });
+    const tween2 = gsap.to(marqueeRow2, {
+      xPercent: 0,
+      repeat: -1,
+      duration: 35,
+      ease: "none"
+    });
+
+    // Dynamically react to Lenis scroll velocity
+    let scrollTimeout: number;
+    lenis.on('scroll', (e: { velocity: number }) => {
+      const vel = Math.abs(e.velocity || 0);
+      const targetTimeScale = 1 + Math.min(vel * 0.4, 3.0);
+
+      gsap.to([tween1, tween2], {
+        timeScale: targetTimeScale,
+        duration: 0.25,
+        overwrite: "auto"
+      });
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        gsap.to([tween1, tween2], {
+          timeScale: 1,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+      }, 120);
+    });
+
+    // Slow down on stage hover for comfortable viewing
+    if (marqueeStage) {
+      marqueeStage.addEventListener('mouseenter', () => {
+        gsap.to([tween1, tween2], { timeScale: 0.2, duration: 0.5 });
+      });
+      marqueeStage.addEventListener('mouseleave', () => {
+        gsap.to([tween1, tween2], { timeScale: 1, duration: 0.5 });
+      });
+    }
+  }
+
   // Custom Cursor Initialization
   initCustomCursor();
 }
