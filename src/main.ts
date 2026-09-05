@@ -361,6 +361,70 @@ function initApp() {
     }
   }
 
+  // Uttam Choudhary Director Portfolio Interactivity
+  const gradeBtnRaw = document.getElementById('grade-btn-raw');
+  const gradeBtnMaster = document.getElementById('grade-btn-master');
+  const directorImg = document.getElementById('director-portrait-img') as HTMLImageElement;
+
+  if (gradeBtnRaw && gradeBtnMaster && directorImg) {
+    gradeBtnRaw.addEventListener('click', () => {
+      gradeBtnRaw.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
+      gradeBtnRaw.classList.remove('text-neutral-400');
+      gradeBtnMaster.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
+      gradeBtnMaster.classList.add('text-neutral-400');
+
+      gsap.to(directorImg, {
+        filter: 'grayscale(70%) sepia(15%) contrast(85%) brightness(95%)',
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+
+    gradeBtnMaster.addEventListener('click', () => {
+      gradeBtnMaster.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
+      gradeBtnMaster.classList.remove('text-neutral-400');
+      gradeBtnRaw.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
+      gradeBtnRaw.classList.add('text-neutral-400');
+
+      gsap.to(directorImg, {
+        filter: 'contrast(105%) saturate(110%)',
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+  }
+
+  // Director Craft Tabs Logic
+  const founderTabBtns = document.querySelectorAll('.founder-tab-btn');
+  const founderTabContents = document.querySelectorAll('.founder-tab-content');
+
+  founderTabBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const targetBtn = e.currentTarget as HTMLButtonElement;
+      const tabName = targetBtn.getAttribute('data-tab');
+
+      founderTabBtns.forEach(b => {
+        b.classList.remove('border-gold-500', 'text-gold-400');
+        b.classList.add('border-transparent', 'text-neutral-400');
+      });
+
+      targetBtn.classList.remove('border-transparent', 'text-neutral-400');
+      targetBtn.classList.add('border-gold-500', 'text-gold-400');
+
+      founderTabContents.forEach(content => {
+        const contentEl = content as HTMLElement;
+        if (contentEl.id === `founder-tab-${tabName}`) {
+          contentEl.classList.remove('hidden');
+          contentEl.classList.add('block');
+          gsap.fromTo(contentEl, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+        } else {
+          contentEl.classList.remove('block');
+          contentEl.classList.add('hidden');
+        }
+      });
+    });
+  });
+
   // Custom Cursor Initialization
   initCustomCursor();
 }
