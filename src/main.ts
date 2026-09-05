@@ -361,57 +361,6 @@ function initApp() {
     }
   }
 
-  // Concept 3: The Light & Shadow Monolith Interactivity
-  const monolithBtnGold = document.getElementById('monolith-btn-gold');
-  const monolithBtnNoir = document.getElementById('monolith-btn-noir');
-  const monolithImg = document.getElementById('monolith-portrait-img') as HTMLImageElement;
-  const monolithRimLight = document.getElementById('monolith-rim-light');
-  const monolithSpectrumBadge = document.getElementById('monolith-spectrum-badge');
-
-  if (monolithBtnGold && monolithBtnNoir && monolithImg && monolithRimLight && monolithSpectrumBadge) {
-    monolithBtnGold.addEventListener('click', () => {
-      monolithBtnGold.classList.add('bg-gold-400', 'text-black', 'font-bold');
-      monolithBtnGold.classList.remove('bg-neutral-900', 'text-neutral-400');
-      monolithBtnNoir.classList.remove('bg-gold-400', 'text-black', 'font-bold');
-      monolithBtnNoir.classList.add('bg-neutral-900', 'text-neutral-400');
-
-      monolithSpectrumBadge.innerText = 'SPECTRUM: 5600K GOLD';
-      monolithSpectrumBadge.classList.remove('text-neutral-300', 'border-white/20');
-      monolithSpectrumBadge.classList.add('text-gold-400', 'border-gold-500/30');
-
-      gsap.to(monolithRimLight, {
-        background: 'linear-gradient(to top right, rgba(0,0,0,0.8), transparent, rgba(197,151,26,0.35))',
-        duration: 0.6
-      });
-
-      gsap.to(monolithImg, {
-        filter: 'contrast(110%) saturate(105%)',
-        duration: 0.6
-      });
-    });
-
-    monolithBtnNoir.addEventListener('click', () => {
-      monolithBtnNoir.classList.add('bg-gold-400', 'text-black', 'font-bold');
-      monolithBtnNoir.classList.remove('bg-neutral-900', 'text-neutral-400');
-      monolithBtnGold.classList.remove('bg-gold-400', 'text-black', 'font-bold');
-      monolithBtnGold.classList.add('bg-neutral-900', 'text-neutral-400');
-
-      monolithSpectrumBadge.innerText = 'SPECTRUM: NOIR MONOCHROME';
-      monolithSpectrumBadge.classList.remove('text-gold-400', 'border-gold-500/30');
-      monolithSpectrumBadge.classList.add('text-neutral-300', 'border-white/20');
-
-      gsap.to(monolithRimLight, {
-        background: 'linear-gradient(to top right, rgba(0,0,0,0.9), transparent, rgba(255,255,255,0.25))',
-        duration: 0.6
-      });
-
-      gsap.to(monolithImg, {
-        filter: 'grayscale(100%) contrast(130%) brightness(90%)',
-        duration: 0.6
-      });
-    });
-  }
-
   // Custom Cursor Initialization
   initCustomCursor();
 }
