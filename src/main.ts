@@ -361,67 +361,129 @@ function initApp() {
     }
   }
 
-  // Uttam Choudhary Director Portfolio Interactivity
-  const gradeBtnRaw = document.getElementById('grade-btn-raw');
-  const gradeBtnMaster = document.getElementById('grade-btn-master');
-  const directorImg = document.getElementById('director-portrait-img') as HTMLImageElement;
+  // Concept 2: The Aperture Vault Interactivity
+  const apertureBtns = document.querySelectorAll('.aperture-stop-btn');
+  const apertureCategory = document.getElementById('aperture-category');
+  const apertureTitle = document.getElementById('aperture-title');
+  const apertureDesc = document.getElementById('aperture-desc');
+  const apertureOptic = document.getElementById('aperture-optic');
+  const apertureBadge = document.getElementById('aperture-badge');
+  const apertureImg = document.getElementById('aperture-portrait-img') as HTMLImageElement;
+  const apertureSvg = document.getElementById('aperture-blades-svg');
+  const apertureGlow = document.getElementById('aperture-glow');
 
-  if (gradeBtnRaw && gradeBtnMaster && directorImg) {
-    gradeBtnRaw.addEventListener('click', () => {
-      gradeBtnRaw.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
-      gradeBtnRaw.classList.remove('text-neutral-400');
-      gradeBtnMaster.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
-      gradeBtnMaster.classList.add('text-neutral-400');
+  const apertureData: Record<string, { category: string; title: string; desc: string; optic: string; badge: string; rotation: number; blur: string; color: string; imgSrc: string }> = {
+    f14: {
+      category: 'DEPTH OF FIELD: ULTRA SHALLOW (f/1.4)',
+      title: 'Unfiltered Emotional Intimacy',
+      desc: 'Opening wide to f/1.4 melts background distractions away, placing absolute focus on tearful eyes, tender glances, and raw human connection that words cannot articulate.',
+      optic: 'OPTIC: 85mm Prime T1.2',
+      badge: 'f/1.4 — Deep Focus on Emotion',
+      rotation: 0,
+      blur: 'blur(0px) contrast(110%)',
+      color: 'rgba(197,151,26,0.15)',
+      imgSrc: '/carousel/carousel_03.jpg'
+    },
+    f28: {
+      category: 'DEPTH OF FIELD: GOLDEN HOUR CINEMA (f/2.8)',
+      title: 'Sun-Drenched Destination Magic',
+      desc: 'Framing golden hour flares over royal palaces and coastal horizons with organic lens flare, warm anamorphic streaks, and painterly background bokeh.',
+      optic: 'OPTIC: 35mm Anamorphic T2.8',
+      badge: 'f/2.8 — Golden Hour Magic',
+      rotation: 45,
+      blur: 'blur(0px) brightness(110%) contrast(105%)',
+      color: 'rgba(212,172,41,0.2)',
+      imgSrc: '/carousel/carousel_02.jpg'
+    },
+    f56: {
+      category: 'DEPTH OF FIELD: BALANCED SCOPE (f/5.6)',
+      title: 'Royal Heritage & Grand Scale',
+      desc: 'Striking the perfect harmony between subject sharp detail and breathtaking architectural grandeur across palaces, mandaps, and ballrooms.',
+      optic: 'OPTIC: 50mm Master Prime T1.4',
+      badge: 'f/5.6 — Royal Heritage Scope',
+      rotation: 90,
+      blur: 'blur(0px) contrast(115%)',
+      color: 'rgba(197,151,26,0.12)',
+      imgSrc: '/carousel/carousel_05.jpg'
+    },
+    f80: {
+      category: 'DEPTH OF FIELD: DOCUMENTARY REALITY (f/8.0)',
+      title: 'Unscripted Rituals & Culture',
+      desc: 'Deep focus capturing fast-paced cultural festivities, sacred garland exchanges, and split-second family laughter with crisp edge-to-edge clarity.',
+      optic: 'OPTIC: 24mm Wide Prime T2.0',
+      badge: 'f/8.0 — Documentary Reality',
+      rotation: 135,
+      blur: 'blur(0px) contrast(120%)',
+      color: 'rgba(167,122,19,0.18)',
+      imgSrc: '/carousel/carousel_07.jpg'
+    },
+    f11: {
+      category: 'DEPTH OF FIELD: FINE ART NOIR (f/11)',
+      title: 'Shadows, Stars & Dramatic Contrast',
+      desc: 'High aperture precision exposing dramatic chiaroscuro lighting, editorial moonlight silhouettes, and timeless black & white fine art frames.',
+      optic: 'OPTIC: 100mm Macro Prime T2.8',
+      badge: 'f/11 — Fine Art Noir & Shadows',
+      rotation: 180,
+      blur: 'grayscale(50%) contrast(125%)',
+      color: 'rgba(133,93,17,0.22)',
+      imgSrc: '/carousel/carousel_08.jpg'
+    }
+  };
 
-      gsap.to(directorImg, {
-        filter: 'grayscale(70%) sepia(15%) contrast(85%) brightness(95%)',
-        duration: 0.6,
-        ease: "power2.out"
-      });
-    });
-
-    gradeBtnMaster.addEventListener('click', () => {
-      gradeBtnMaster.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
-      gradeBtnMaster.classList.remove('text-neutral-400');
-      gradeBtnRaw.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_10px_rgba(197,151,26,0.5)]');
-      gradeBtnRaw.classList.add('text-neutral-400');
-
-      gsap.to(directorImg, {
-        filter: 'contrast(105%) saturate(110%)',
-        duration: 0.6,
-        ease: "power2.out"
-      });
-    });
-  }
-
-  // Director Craft Tabs Logic
-  const founderTabBtns = document.querySelectorAll('.founder-tab-btn');
-  const founderTabContents = document.querySelectorAll('.founder-tab-content');
-
-  founderTabBtns.forEach(btn => {
+  apertureBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       const targetBtn = e.currentTarget as HTMLButtonElement;
-      const tabName = targetBtn.getAttribute('data-tab');
+      const key = targetBtn.getAttribute('data-aperture') || 'f14';
+      const data = apertureData[key];
+      if (!data) return;
 
-      founderTabBtns.forEach(b => {
-        b.classList.remove('border-gold-500', 'text-gold-400');
-        b.classList.add('border-transparent', 'text-neutral-400');
+      apertureBtns.forEach(b => {
+        b.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_15px_rgba(197,151,26,0.4)]');
+        b.classList.add('text-neutral-400');
       });
 
-      targetBtn.classList.remove('border-transparent', 'text-neutral-400');
-      targetBtn.classList.add('border-gold-500', 'text-gold-400');
+      targetBtn.classList.remove('text-neutral-400');
+      targetBtn.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_15px_rgba(197,151,26,0.4)]');
 
-      founderTabContents.forEach(content => {
-        const contentEl = content as HTMLElement;
-        if (contentEl.id === `founder-tab-${tabName}`) {
-          contentEl.classList.remove('hidden');
-          contentEl.classList.add('block');
-          gsap.fromTo(contentEl, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
-        } else {
-          contentEl.classList.remove('block');
-          contentEl.classList.add('hidden');
-        }
-      });
+      // Animate Card Text Swap
+      if (apertureCategory && apertureTitle && apertureDesc && apertureOptic && apertureBadge) {
+        gsap.to('#aperture-card', {
+          opacity: 0,
+          y: -10,
+          duration: 0.25,
+          onComplete: () => {
+            apertureCategory.innerText = data.category;
+            apertureTitle.innerText = data.title;
+            apertureDesc.innerText = data.desc;
+            apertureOptic.innerText = data.optic;
+            apertureBadge.innerText = data.badge;
+
+            gsap.to('#aperture-card', { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
+          }
+        });
+      }
+
+      // Animate Lens Blade Rotation & Image Swap
+      if (apertureSvg) {
+        gsap.to(apertureSvg, { rotate: data.rotation, duration: 0.7, ease: "power2.out" });
+      }
+
+      if (apertureGlow) {
+        apertureGlow.style.backgroundColor = data.color;
+      }
+
+      if (apertureImg) {
+        gsap.to(apertureImg, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.3,
+          onComplete: () => {
+            apertureImg.src = data.imgSrc;
+            apertureImg.style.filter = data.blur;
+            gsap.to(apertureImg, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
+          }
+        });
+      }
     });
   });
 

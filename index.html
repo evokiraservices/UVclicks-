@@ -392,160 +392,94 @@
         </div>
       </section>
 
-      <!-- Founder & Director Portfolio Section: Uttam Choudhary -->
-      <section id="director-portfolio" class="relative bg-neutral-950 py-28 md:py-36 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-        <!-- Radial Ambient Gold Background Glow -->
-        <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+      <!-- Founder & Director Portfolio Section: Concept 2 - The Aperture Vault -->
+      <section id="aperture-vault" class="relative bg-neutral-950 py-28 md:py-36 px-6 md:px-12 border-t border-white/5 overflow-hidden">
+        <!-- Dynamic Background Ambient Lighting Tint -->
+        <div id="aperture-glow" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[150px] transition-all duration-700 pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
           
-          <!-- Left Column: The Director's Portrait Frame & Contact Sheet Metadata -->
-          <div class="lg:col-span-5 flex flex-col items-center">
-            
-            <div class="relative w-full max-w-md group">
-              
-              <!-- Film Sprocket Margin Top -->
-              <div class="h-6 bg-black border border-white/10 flex items-center justify-between px-3 text-[8px] font-mono text-neutral-400 tracking-widest uppercase rounded-t-md">
-                <span>ROLL #04A</span>
-                <span>35MM KODAK PORTRA</span>
-                <span>FRAME 24</span>
-              </div>
-
-              <!-- Main Portrait Container -->
-              <div class="relative aspect-[3/4] rounded-b-xl overflow-hidden bg-neutral-900 border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-700">
-                
-                <!-- Portrait Image -->
-                <img id="director-portrait-img" src="/carousel/carousel_03.jpg" alt="Uttam Choudhary - Founder & Cinematographer" class="w-full h-full object-cover filter contrast-105 saturate-110 transition-all duration-700 group-hover:scale-105" />
-                
-                <!-- Lens Overlay Frame & HUD -->
-                <div class="absolute inset-0 border-[14px] border-black/40 pointer-events-none flex flex-col justify-between p-4">
-                  <!-- HUD Header (Camera Specs) -->
-                  <div class="flex justify-between items-start text-[9px] font-mono text-gold-400 bg-black/70 backdrop-blur-md p-2 rounded border border-gold-500/20">
-                    <div>
-                      <span class="block text-white font-bold">REC ● 4K 24FPS</span>
-                      <span class="text-neutral-400">ISO 100 | f/1.2 | 35mm</span>
-                    </div>
-                    <div class="text-right">
-                      <span class="block text-gold-300">RAW 12-BIT</span>
-                      <span class="text-neutral-400">COLOR: MASTER GOLD</span>
-                    </div>
-                  </div>
-
-                  <!-- Crosshair Center Overlay -->
-                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 border border-white/20 rounded-full flex items-center justify-center pointer-events-none">
-                    <div class="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>
-                  </div>
-
-                  <!-- HUD Footer (Director Title) -->
-                  <div class="flex justify-between items-end text-[9px] font-mono text-neutral-300 bg-black/70 backdrop-blur-md p-2 rounded border border-white/10">
-                    <span class="uppercase tracking-widest text-gold-400">DIR: UTTAM CHOUDHARY</span>
-                    <span class="text-neutral-400">SCENE 01 / TAKE 01</span>
-                  </div>
-                </div>
-
-                <!-- Interactive Color Grade Toggle Pill -->
-                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-neutral-900/90 backdrop-blur-xl border border-gold-500/30 rounded-full p-1 flex items-center gap-1 shadow-lg">
-                  <button id="grade-btn-raw" class="grade-toggle-btn px-3 py-1 text-[9px] font-bold tracking-widest uppercase rounded-full text-neutral-400 hover:text-white transition-all duration-300">RAW SENSOR</button>
-                  <button id="grade-btn-master" class="grade-toggle-btn active-grade px-3 py-1 text-[9px] font-bold tracking-widest uppercase rounded-full text-black bg-gold-400 shadow-[0_0_10px_rgba(197,151,26,0.5)] transition-all duration-300">MASTER GRADE</button>
-                </div>
-
-              </div>
-
-              <!-- Film Sprocket Margin Bottom -->
-              <div class="mt-3 text-center">
-                <span class="text-[9px] font-mono text-neutral-500 tracking-[0.2em] uppercase">● 35mm Anamorphic Optics ● UVclicks Signature Studio</span>
-              </div>
-            </div>
-
+          <!-- Section Badge & Title -->
+          <div class="max-w-3xl mb-12">
+            <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase block mb-3">The Lens & The Craft</span>
+            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wide uppercase mb-3 font-bold">UTTAM CHOUDHARY</h2>
+            <div class="w-16 h-[2px] bg-gold-500 mx-auto mb-4"></div>
+            <p class="font-sans text-neutral-400 text-xs md:text-sm tracking-[0.2em] uppercase">
+              Founder & Director of Cinematography
+            </p>
           </div>
 
-          <!-- Right Column: Editorial Bio, Signature & Interactive Craft Tabs -->
-          <div class="lg:col-span-7 flex flex-col items-start">
+          <!-- Aperture Wheel Selector (Camera Stops) -->
+          <div class="w-full max-w-2xl mb-12">
+            <div class="text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4">Rotate Lens Iris (Select Aperture Stop)</div>
+            <div class="glass border border-white/10 rounded-full p-2 flex justify-between items-center shadow-2xl relative">
+              <button class="aperture-stop-btn active-stop px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-mono font-bold transition-all duration-300 text-black bg-gold-400 shadow-[0_0_15px_rgba(197,151,26,0.4)] cursor-pointer" data-aperture="f14">f/1.4</button>
+              <button class="aperture-stop-btn px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-mono font-bold transition-all duration-300 text-neutral-400 hover:text-white cursor-pointer" data-aperture="f28">f/2.8</button>
+              <button class="aperture-stop-btn px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-mono font-bold transition-all duration-300 text-neutral-400 hover:text-white cursor-pointer" data-aperture="f56">f/5.6</button>
+              <button class="aperture-stop-btn px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-mono font-bold transition-all duration-300 text-neutral-400 hover:text-white cursor-pointer" data-aperture="f80">f/8.0</button>
+              <button class="aperture-stop-btn px-4 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-mono font-bold transition-all duration-300 text-neutral-400 hover:text-white cursor-pointer" data-aperture="f11">f/11</button>
+            </div>
+          </div>
+
+          <!-- Main Spotlight Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left w-full">
             
-            <!-- Subtitle -->
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-[1px] bg-gold-500"></div>
-              <span class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase">The Visionary & Director</span>
-            </div>
+            <!-- Left: Rotating Lens Iris & Founder Portrait -->
+            <div class="lg:col-span-6 flex justify-center relative">
+              <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-gold-500/30 p-3 shadow-[0_0_50px_rgba(197,151,26,0.2)]">
+                
+                <!-- Rotating Aperture Blade SVG Ring -->
+                <svg id="aperture-blades-svg" class="absolute inset-0 w-full h-full text-gold-500/20 transition-transform duration-700 ease-out" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+                  <circle cx="50" cy="50" r="48" stroke-dasharray="2 2" />
+                  <path d="M50 2 L50 20 M98 50 L80 50 M50 98 L50 80 M2 50 L20 50" />
+                  <polygon points="50,15 85,50 50,85 15,50" stroke-width="0.3" stroke-dasharray="1 1" />
+                </svg>
 
-            <!-- Founder Name -->
-            <h2 class="font-serif text-4xl md:text-6xl text-white tracking-wide uppercase font-bold mb-1">
-              UTTAM CHOUDHARY
-            </h2>
-            <p class="font-sans text-neutral-400 text-xs md:text-sm tracking-[0.2em] uppercase mb-4">
-              Founder & Master Cinematographer
-            </p>
+                <!-- Portrait Image inside Lens Iris -->
+                <div class="w-full h-full rounded-full overflow-hidden relative">
+                  <img id="aperture-portrait-img" src="/carousel/carousel_03.jpg" alt="Uttam Choudhary Lens Aperture Focus" class="w-full h-full object-cover transition-all duration-700 filter contrast-105 saturate-110" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  
+                  <!-- Aperture Lens Overlay Specs Badge -->
+                  <div class="absolute bottom-6 left-0 right-0 text-center">
+                    <span id="aperture-badge" class="font-mono text-xs text-gold-400 font-bold tracking-widest uppercase bg-black/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-gold-500/30">
+                      f/1.4 — Deep Focus on Emotion
+                    </span>
+                  </div>
+                </div>
 
-            <!-- Handwritten Signature Simulation -->
-            <div class="mb-6 font-serif italic text-3xl md:text-4xl text-gold-gradient tracking-wider opacity-95 select-none">
-              Uttam Choudhary
-            </div>
-
-            <!-- Philosophy Quote Card -->
-            <div class="glass-card p-6 md:p-8 rounded-2xl border-l-2 border-l-gold-500 mb-8 relative w-full">
-              <p class="font-serif italic text-lg md:text-xl text-neutral-200 leading-relaxed mb-4">
-                "Light is not merely illumination — it is emotional geometry. My lens doesn't just record events; it captures the unscripted pulse of how a moment truly felt."
-              </p>
-              <div class="flex items-center gap-2 text-[10px] tracking-widest text-gold-400 uppercase font-mono">
-                <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                <span>Director's Note</span>
               </div>
             </div>
 
-            <!-- Interactive Craft Tabs -->
-            <div class="w-full mb-8">
-              <!-- Tab Header Buttons -->
-              <div class="flex border-b border-white/10 gap-6 mb-6">
-                <button class="founder-tab-btn border-b-2 border-gold-500 pb-3 text-xs font-bold tracking-widest uppercase text-gold-400 transition-all duration-300 cursor-pointer" data-tab="vision">The Vision</button>
-                <button class="founder-tab-btn border-b-2 border-transparent pb-3 text-xs font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer" data-tab="craft">The Craft</button>
-                <button class="founder-tab-btn border-b-2 border-transparent pb-3 text-xs font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer" data-tab="milestones">Milestones</button>
-              </div>
-
-              <!-- Tab Content 1: The Vision -->
-              <div id="founder-tab-vision" class="founder-tab-content block">
-                <p class="font-sans text-neutral-300 text-sm md:text-base leading-relaxed mb-3">
-                  With over a decade dedicated to high-art cinematography, Uttam Choudhary established UVclicks to bridge traditional wedding films with timeless motion-picture art.
-                </p>
-                <p class="font-sans text-neutral-400 text-xs md:text-sm leading-relaxed">
-                  Every project is treated as an individual film production, tailored with custom color science, organic lighting, and intimate storytelling.
-                </p>
-              </div>
-
-              <!-- Tab Content 2: The Craft -->
-              <div id="founder-tab-craft" class="founder-tab-content hidden">
-                <p class="font-sans text-neutral-300 text-sm md:text-base leading-relaxed mb-3">
-                  Mastering anamorphic lenses, natural golden hour exposure, and 4K digital cinema sensors to deliver depth that feels painterly and alive.
-                </p>
-                <p class="font-sans text-neutral-400 text-xs md:text-sm leading-relaxed">
-                  Specialized in unobtrusive candid capture — allowing real human emotions to unfold naturally without forced poses or artificial setups.
-                </p>
-              </div>
-
-              <!-- Tab Content 3: Milestones -->
-              <div id="founder-tab-milestones" class="founder-tab-content hidden">
-                <div class="grid grid-cols-3 gap-4 text-center py-2">
-                  <div class="p-4 glass rounded-xl border border-white/5">
-                    <span class="font-serif text-2xl md:text-3xl font-bold text-gold-400 block mb-1">150+</span>
-                    <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">Luxury Weddings</span>
-                  </div>
-                  <div class="p-4 glass rounded-xl border border-white/5">
-                    <span class="font-serif text-2xl md:text-3xl font-bold text-gold-400 block mb-1">12+</span>
-                    <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">Global Destinations</span>
-                  </div>
-                  <div class="p-4 glass rounded-xl border border-white/5">
-                    <span class="font-serif text-2xl md:text-3xl font-bold text-gold-400 block mb-1">10+</span>
-                    <span class="text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">Years Mastery</span>
-                  </div>
+            <!-- Right: Dynamic Focus Description Card & Signature -->
+            <div class="lg:col-span-6 flex flex-col items-start">
+              
+              <!-- Dynamic Card Container -->
+              <div id="aperture-card" class="glass-card p-8 rounded-2xl border-l-4 border-l-gold-500 w-full min-h-[220px] flex flex-col justify-between mb-8 transition-all duration-500">
+                <div>
+                  <span id="aperture-category" class="text-gold-400 text-xs font-mono tracking-widest uppercase block mb-2">DEPTH OF FIELD: SHALLOW</span>
+                  <h3 id="aperture-title" class="font-serif text-2xl md:text-3xl text-white mb-4 font-bold">Unfiltered Emotional Intimacy</h3>
+                  <p id="aperture-desc" class="font-sans text-neutral-300 text-sm md:text-base leading-relaxed">
+                    Opening wide to f/1.4 melts background distractions away, placing absolute focus on tearful eyes, tender glances, and raw human connection that words cannot articulate.
+                  </p>
+                </div>
+                <div class="mt-4 flex items-center justify-between text-[10px] font-mono text-neutral-400 border-t border-white/10 pt-4">
+                  <span id="aperture-optic">OPTIC: 85mm Prime T1.2</span>
+                  <span>DIRECTOR SELECTS</span>
                 </div>
               </div>
 
-            </div>
+              <!-- Signature & Direct CTA -->
+              <div class="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
+                <div class="font-serif italic text-3xl text-gold-gradient tracking-wider select-none">
+                  Uttam Choudhary
+                </div>
+                <a href="contact.html" class="px-7 py-3.5 bg-gold-500 hover:bg-gold-400 text-black text-xs font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(197,151,26,0.3)]">
+                  Reserve Session
+                </a>
+              </div>
 
-            <!-- Action Button -->
-            <a href="contact.html" class="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-black text-xs font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-[0_0_25px_rgba(197,151,26,0.35)] flex items-center gap-3 group">
-              <span>Commission Session with Uttam</span>
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
+            </div>
 
           </div>
 
