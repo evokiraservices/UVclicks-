@@ -361,131 +361,56 @@ function initApp() {
     }
   }
 
-  // Concept 2: The Aperture Vault Interactivity
-  const apertureBtns = document.querySelectorAll('.aperture-stop-btn');
-  const apertureCategory = document.getElementById('aperture-category');
-  const apertureTitle = document.getElementById('aperture-title');
-  const apertureDesc = document.getElementById('aperture-desc');
-  const apertureOptic = document.getElementById('aperture-optic');
-  const apertureBadge = document.getElementById('aperture-badge');
-  const apertureImg = document.getElementById('aperture-portrait-img') as HTMLImageElement;
-  const apertureSvg = document.getElementById('aperture-blades-svg');
-  const apertureGlow = document.getElementById('aperture-glow');
+  // Concept 3: The Light & Shadow Monolith Interactivity
+  const monolithBtnGold = document.getElementById('monolith-btn-gold');
+  const monolithBtnNoir = document.getElementById('monolith-btn-noir');
+  const monolithImg = document.getElementById('monolith-portrait-img') as HTMLImageElement;
+  const monolithRimLight = document.getElementById('monolith-rim-light');
+  const monolithSpectrumBadge = document.getElementById('monolith-spectrum-badge');
 
-  const apertureData: Record<string, { category: string; title: string; desc: string; optic: string; badge: string; rotation: number; blur: string; color: string; imgSrc: string }> = {
-    f14: {
-      category: 'DEPTH OF FIELD: ULTRA SHALLOW (f/1.4)',
-      title: 'Unfiltered Emotional Intimacy',
-      desc: 'Opening wide to f/1.4 melts background distractions away, placing absolute focus on tearful eyes, tender glances, and raw human connection that words cannot articulate.',
-      optic: 'OPTIC: 85mm Prime T1.2',
-      badge: 'f/1.4 — Deep Focus on Emotion',
-      rotation: 0,
-      blur: 'blur(0px) contrast(110%)',
-      color: 'rgba(197,151,26,0.15)',
-      imgSrc: '/carousel/carousel_03.jpg'
-    },
-    f28: {
-      category: 'DEPTH OF FIELD: GOLDEN HOUR CINEMA (f/2.8)',
-      title: 'Sun-Drenched Destination Magic',
-      desc: 'Framing golden hour flares over royal palaces and coastal horizons with organic lens flare, warm anamorphic streaks, and painterly background bokeh.',
-      optic: 'OPTIC: 35mm Anamorphic T2.8',
-      badge: 'f/2.8 — Golden Hour Magic',
-      rotation: 45,
-      blur: 'blur(0px) brightness(110%) contrast(105%)',
-      color: 'rgba(212,172,41,0.2)',
-      imgSrc: '/carousel/carousel_02.jpg'
-    },
-    f56: {
-      category: 'DEPTH OF FIELD: BALANCED SCOPE (f/5.6)',
-      title: 'Royal Heritage & Grand Scale',
-      desc: 'Striking the perfect harmony between subject sharp detail and breathtaking architectural grandeur across palaces, mandaps, and ballrooms.',
-      optic: 'OPTIC: 50mm Master Prime T1.4',
-      badge: 'f/5.6 — Royal Heritage Scope',
-      rotation: 90,
-      blur: 'blur(0px) contrast(115%)',
-      color: 'rgba(197,151,26,0.12)',
-      imgSrc: '/carousel/carousel_05.jpg'
-    },
-    f80: {
-      category: 'DEPTH OF FIELD: DOCUMENTARY REALITY (f/8.0)',
-      title: 'Unscripted Rituals & Culture',
-      desc: 'Deep focus capturing fast-paced cultural festivities, sacred garland exchanges, and split-second family laughter with crisp edge-to-edge clarity.',
-      optic: 'OPTIC: 24mm Wide Prime T2.0',
-      badge: 'f/8.0 — Documentary Reality',
-      rotation: 135,
-      blur: 'blur(0px) contrast(120%)',
-      color: 'rgba(167,122,19,0.18)',
-      imgSrc: '/carousel/carousel_07.jpg'
-    },
-    f11: {
-      category: 'DEPTH OF FIELD: FINE ART NOIR (f/11)',
-      title: 'Shadows, Stars & Dramatic Contrast',
-      desc: 'High aperture precision exposing dramatic chiaroscuro lighting, editorial moonlight silhouettes, and timeless black & white fine art frames.',
-      optic: 'OPTIC: 100mm Macro Prime T2.8',
-      badge: 'f/11 — Fine Art Noir & Shadows',
-      rotation: 180,
-      blur: 'grayscale(50%) contrast(125%)',
-      color: 'rgba(133,93,17,0.22)',
-      imgSrc: '/carousel/carousel_08.jpg'
-    }
-  };
+  if (monolithBtnGold && monolithBtnNoir && monolithImg && monolithRimLight && monolithSpectrumBadge) {
+    monolithBtnGold.addEventListener('click', () => {
+      monolithBtnGold.classList.add('bg-gold-400', 'text-black', 'font-bold');
+      monolithBtnGold.classList.remove('bg-neutral-900', 'text-neutral-400');
+      monolithBtnNoir.classList.remove('bg-gold-400', 'text-black', 'font-bold');
+      monolithBtnNoir.classList.add('bg-neutral-900', 'text-neutral-400');
 
-  apertureBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const targetBtn = e.currentTarget as HTMLButtonElement;
-      const key = targetBtn.getAttribute('data-aperture') || 'f14';
-      const data = apertureData[key];
-      if (!data) return;
+      monolithSpectrumBadge.innerText = 'SPECTRUM: 5600K GOLD';
+      monolithSpectrumBadge.classList.remove('text-neutral-300', 'border-white/20');
+      monolithSpectrumBadge.classList.add('text-gold-400', 'border-gold-500/30');
 
-      apertureBtns.forEach(b => {
-        b.classList.remove('bg-gold-400', 'text-black', 'shadow-[0_0_15px_rgba(197,151,26,0.4)]');
-        b.classList.add('text-neutral-400');
+      gsap.to(monolithRimLight, {
+        background: 'linear-gradient(to top right, rgba(0,0,0,0.8), transparent, rgba(197,151,26,0.35))',
+        duration: 0.6
       });
 
-      targetBtn.classList.remove('text-neutral-400');
-      targetBtn.classList.add('bg-gold-400', 'text-black', 'shadow-[0_0_15px_rgba(197,151,26,0.4)]');
-
-      // Animate Card Text Swap
-      if (apertureCategory && apertureTitle && apertureDesc && apertureOptic && apertureBadge) {
-        gsap.to('#aperture-card', {
-          opacity: 0,
-          y: -10,
-          duration: 0.25,
-          onComplete: () => {
-            apertureCategory.innerText = data.category;
-            apertureTitle.innerText = data.title;
-            apertureDesc.innerText = data.desc;
-            apertureOptic.innerText = data.optic;
-            apertureBadge.innerText = data.badge;
-
-            gsap.to('#aperture-card', { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
-          }
-        });
-      }
-
-      // Animate Lens Blade Rotation & Image Swap
-      if (apertureSvg) {
-        gsap.to(apertureSvg, { rotate: data.rotation, duration: 0.7, ease: "power2.out" });
-      }
-
-      if (apertureGlow) {
-        apertureGlow.style.backgroundColor = data.color;
-      }
-
-      if (apertureImg) {
-        gsap.to(apertureImg, {
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.3,
-          onComplete: () => {
-            apertureImg.src = data.imgSrc;
-            apertureImg.style.filter = data.blur;
-            gsap.to(apertureImg, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" });
-          }
-        });
-      }
+      gsap.to(monolithImg, {
+        filter: 'contrast(110%) saturate(105%)',
+        duration: 0.6
+      });
     });
-  });
+
+    monolithBtnNoir.addEventListener('click', () => {
+      monolithBtnNoir.classList.add('bg-gold-400', 'text-black', 'font-bold');
+      monolithBtnNoir.classList.remove('bg-neutral-900', 'text-neutral-400');
+      monolithBtnGold.classList.remove('bg-gold-400', 'text-black', 'font-bold');
+      monolithBtnGold.classList.add('bg-neutral-900', 'text-neutral-400');
+
+      monolithSpectrumBadge.innerText = 'SPECTRUM: NOIR MONOCHROME';
+      monolithSpectrumBadge.classList.remove('text-gold-400', 'border-gold-500/30');
+      monolithSpectrumBadge.classList.add('text-neutral-300', 'border-white/20');
+
+      gsap.to(monolithRimLight, {
+        background: 'linear-gradient(to top right, rgba(0,0,0,0.9), transparent, rgba(255,255,255,0.25))',
+        duration: 0.6
+      });
+
+      gsap.to(monolithImg, {
+        filter: 'grayscale(100%) contrast(130%) brightness(90%)',
+        duration: 0.6
+      });
+    });
+  }
 
   // Custom Cursor Initialization
   initCustomCursor();
