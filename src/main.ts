@@ -21,17 +21,35 @@ let imgWidth = 1920;
 let imgHeight = 1080;
 
 // Setup Canvas Size and Initial Render
-function drawFrame(imgIndex: number) {
-  const img = images[imgIndex];
-  if (!img) return;
+function drawFrame(frameFloat: number) {
+  const clamped = Math.max(0, Math.min(frameCount - 1, frameFloat));
+  const baseIndex = Math.floor(clamped);
+  const nextIndex = Math.min(frameCount - 1, Math.ceil(clamped));
+  const alpha = clamped - baseIndex;
 
-  ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
+  const baseImg = images[baseIndex];
+  if (!baseImg) return;
+
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+
+  ctx.globalAlpha = 1.0;
+  ctx.drawImage(baseImg, 0, 0, imgWidth, imgHeight);
+
+  if (nextIndex !== baseIndex && alpha > 0.001) {
+    const nextImg = images[nextIndex];
+    if (nextImg) {
+      ctx.globalAlpha = alpha;
+      ctx.drawImage(nextImg, 0, 0, imgWidth, imgHeight);
+      ctx.globalAlpha = 1.0;
+    }
+  }
 }
 
 function resizeCanvas() {
   canvas.width = imgWidth;
   canvas.height = imgHeight;
-  drawFrame(Math.round(frameObj.frame));
+  drawFrame(frameObj.frame);
 }
 
 // Preload Images
@@ -118,12 +136,12 @@ function initApp() {
       trigger: "#hero-scroll-container",
       start: "top top",
       end: "+=4500", // Scroll length
-      scrub: 0.3, // Smooth scrub catch-up (adds inertia and removes laggy scroll jumps)
+      scrub: 0.6, // Smooth scrub catch-up (adds inertia and removes laggy scroll jumps)
       pin: true,
     },
     onUpdate: () => {
-      // Draw matching frame on timeline update
-      drawFrame(Math.round(frameObj.frame));
+      // Draw matching frame on timeline update with sub-frame alpha cross-fading
+      drawFrame(frameObj.frame);
     }
   });
 
