@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Elements
 const canvas = document.getElementById('scroll-canvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d')!;
+const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true }) || canvas.getContext('2d')!;
 const progressBar = document.getElementById('progress-bar') as HTMLElement;
 const progressText = document.getElementById('progress-text') as HTMLElement;
 
@@ -17,6 +17,7 @@ const frameCount = 240;
 const images: HTMLImageElement[] = [];
 let loadedCount = 0;
 const frameObj = { frame: 0 };
+let currentRenderFrame = 0;
 let imgWidth = 1920;
 let imgHeight = 1080;
 
@@ -36,7 +37,7 @@ function drawFrame(frameFloat: number) {
   ctx.globalAlpha = 1.0;
   ctx.drawImage(baseImg, 0, 0, imgWidth, imgHeight);
 
-  if (nextIndex !== baseIndex && alpha > 0.001) {
+  if (nextIndex !== baseIndex && alpha > 0.0005) {
     const nextImg = images[nextIndex];
     if (nextImg) {
       ctx.globalAlpha = alpha;
@@ -46,10 +47,18 @@ function drawFrame(frameFloat: number) {
   }
 }
 
+function renderLoop() {
+  const diff = frameObj.frame - currentRenderFrame;
+  if (Math.abs(diff) > 0.0001) {
+    currentRenderFrame += diff * 0.22;
+    drawFrame(currentRenderFrame);
+  }
+}
+
 function resizeCanvas() {
   canvas.width = imgWidth;
   canvas.height = imgHeight;
-  drawFrame(frameObj.frame);
+  drawFrame(currentRenderFrame);
 }
 
 // Preload Images
@@ -130,18 +139,17 @@ function initApp() {
 
   gsap.ticker.lagSmoothing(0);
 
+  // Bind continuous canvas rendering loop to GSAP ticker for 60/120Hz liquid smoothness
+  gsap.ticker.add(renderLoop);
+
   // Setup main scroll timeline
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#hero-scroll-container",
       start: "top top",
-      end: "+=4500", // Scroll length
-      scrub: 0.6, // Smooth scrub catch-up (adds inertia and removes laggy scroll jumps)
+      end: "+=6000", // Extended scroll length for gradual, silky-smooth frame transitions
+      scrub: 0.8, // Enhanced scrub momentum catch-up
       pin: true,
-    },
-    onUpdate: () => {
-      // Draw matching frame on timeline update with sub-frame alpha cross-fading
-      drawFrame(frameObj.frame);
     }
   });
 
