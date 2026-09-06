@@ -217,7 +217,7 @@ body.loading {
   background-color: #000000 !important;
   border-top: 2px solid rgba(255, 255, 255, 0.3) !important;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
-  padding: 24px 0;
+  padding: 22px 0;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
 }
 
@@ -243,46 +243,16 @@ body.loading {
   bottom: 7px;
 }
 
-/* Film Frame Card - matching sidebar theme with gold-100 / gold-500 accent */
+/* Clean Film Frame Card - matching sidebar theme with NO hover effect */
 .film-frame-card {
   position: relative;
   flex-shrink: 0;
   background-color: #000000;
   border: 1.5px solid rgba(245, 238, 189, 0.35); /* #f5eebd gold-100 tone */
   border-radius: 4px;
-  padding: 10px 10px 14px 10px;
+  overflow: hidden;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.film-frame-card:hover {
-  border-color: #c5971a;
-  box-shadow: 0 0 35px rgba(197, 151, 26, 0.45);
-  transform: scale(1.03);
-}
-
-.film-frame-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: #f5eebd;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-}
-
-.film-frame-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  color: rgba(245, 238, 189, 0.65);
-  margin-top: 6px;
-}
 
 
