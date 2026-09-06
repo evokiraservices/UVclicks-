@@ -147,10 +147,10 @@ function initApp() {
     scrollTrigger: {
       trigger: "#hero-scroll-container",
       start: "top top",
-      end: "+=3200", // Responsive scroll length for smooth, fluid transitions without feeling stuck
-      scrub: 0.3, // Immediate scrub response eliminating pin-release lag
+      end: "+=1800", // Fast, fluid scroll distance eliminating long pin-locking
+      scrub: 0.15, // Instantaneous scrub response with zero momentum catch-up delay
       pin: true,
-      anticipatePin: 1, // Smooth out pinning and unpinning transitions
+      anticipatePin: 1, // Smooth pin entrance and exit transitions
     }
   });
 
