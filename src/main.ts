@@ -34,14 +34,17 @@ function drawFrame(frameFloat: number) {
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = 'high';
 
+  const w = canvas.width || imgWidth;
+  const h = canvas.height || imgHeight;
+
   ctx.globalAlpha = 1.0;
-  ctx.drawImage(baseImg, 0, 0, imgWidth, imgHeight);
+  ctx.drawImage(baseImg, 0, 0, w, h);
 
   if (nextIndex !== baseIndex && alpha > 0.0005) {
     const nextImg = images[nextIndex];
     if (nextImg) {
       ctx.globalAlpha = alpha;
-      ctx.drawImage(nextImg, 0, 0, imgWidth, imgHeight);
+      ctx.drawImage(nextImg, 0, 0, w, h);
       ctx.globalAlpha = 1.0;
     }
   }
@@ -56,8 +59,18 @@ function renderLoop() {
 }
 
 function resizeCanvas() {
-  canvas.width = imgWidth;
-  canvas.height = imgHeight;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const displayWidth = canvas.clientWidth || window.innerWidth;
+  const displayHeight = canvas.clientHeight || window.innerHeight;
+
+  const targetWidth = Math.max(imgWidth, Math.round(displayWidth * dpr));
+  const targetHeight = Math.max(imgHeight, Math.round(displayHeight * dpr));
+
+  if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+  }
+
   drawFrame(currentRenderFrame);
 }
 
