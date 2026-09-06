@@ -147,9 +147,10 @@ function initApp() {
     scrollTrigger: {
       trigger: "#hero-scroll-container",
       start: "top top",
-      end: "+=6000", // Extended scroll length for gradual, silky-smooth frame transitions
-      scrub: 0.8, // Enhanced scrub momentum catch-up
+      end: "+=3200", // Responsive scroll length for smooth, fluid transitions without feeling stuck
+      scrub: 0.3, // Immediate scrub response eliminating pin-release lag
       pin: true,
+      anticipatePin: 1, // Smooth out pinning and unpinning transitions
     }
   });
 
@@ -367,6 +368,9 @@ function initApp() {
 
     // Unstoppable: marquee runs non-stop continuously
   }
+
+  // Refresh ScrollTrigger to recalculate exact pin bounds after DOM layout initialization
+  ScrollTrigger.refresh();
 
   // Custom Cursor Initialization
   initCustomCursor();
