@@ -308,7 +308,6 @@ function initApp() {
   // Tilted Photo Marquee Scroll Motion Animation
   const marqueeRow1 = document.querySelector('.marquee-row-1');
   const marqueeRow2 = document.querySelector('.marquee-row-2');
-  const marqueeStage = document.querySelector('.marquee-stage');
 
   if (marqueeRow1 && marqueeRow2) {
     // Row 1 glides left continuously
@@ -350,15 +349,7 @@ function initApp() {
       }, 120);
     });
 
-    // Slow down on stage hover for comfortable viewing
-    if (marqueeStage) {
-      marqueeStage.addEventListener('mouseenter', () => {
-        gsap.to([tween1, tween2], { timeScale: 0.2, duration: 0.5 });
-      });
-      marqueeStage.addEventListener('mouseleave', () => {
-        gsap.to([tween1, tween2], { timeScale: 1, duration: 0.5 });
-      });
-    }
+    // Unstoppable: marquee runs non-stop continuously
   }
 
   // Custom Cursor Initialization

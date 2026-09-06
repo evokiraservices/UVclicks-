@@ -210,3 +210,87 @@ body.loading {
   color: #ffffff;
   border: 1.5px solid #c5971a;
 }
+
+/* Camera Film Strip Theme for Marquee */
+.film-strip-track {
+  position: relative;
+  background-color: #08080a;
+  border-top: 2px solid #222228;
+  border-bottom: 2px solid #222228;
+  padding: 16px 0;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95), inset 0 0 35px rgba(0, 0, 0, 0.9);
+}
+
+.film-sprockets-top,
+.film-sprockets-bottom {
+  height: 14px;
+  width: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Crect x='5' y='2' width='10' height='10' rx='2.5' fill='%23000000' stroke='%232c2c34' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: left center;
+  pointer-events: none;
+}
+
+.film-sprockets-top {
+  margin-bottom: 8px;
+}
+
+.film-sprockets-bottom {
+  margin-top: 8px;
+}
+
+.film-edge-stamps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: rgba(229, 184, 66, 0.7);
+  text-transform: uppercase;
+  user-select: none;
+  padding: 0 12px;
+}
+
+.film-frame-card {
+  position: relative;
+  flex-shrink: 0;
+  background-color: #0b0b0d;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 10px 10px 14px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.film-frame-card:hover {
+  border-color: rgba(197, 151, 26, 0.7);
+  box-shadow: 0 0 40px rgba(197, 151, 26, 0.4);
+}
+
+.film-frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(229, 184, 66, 0.85);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.film-frame-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 6px;
+}
+
