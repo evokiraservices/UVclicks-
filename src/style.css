@@ -211,63 +211,54 @@ body.loading {
   border: 1.5px solid #c5971a;
 }
 
-/* Camera Film Strip Theme for Marquee */
-.film-strip-track {
+/* Sidebar-Themed Moving Camera Film Strip */
+.moving-film-strip {
   position: relative;
-  background-color: #08080a;
-  border-top: 2px solid #222228;
-  border-bottom: 2px solid #222228;
-  padding: 16px 0;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95), inset 0 0 35px rgba(0, 0, 0, 0.9);
+  background-color: #000000 !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 24px 0;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
 }
 
-.film-sprockets-top,
-.film-sprockets-bottom {
-  height: 14px;
+/* Parallel Moving Sprocket Hole Tracks (Top and Bottom) */
+.film-sprockets-row-top,
+.film-sprockets-row-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
   width: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Crect x='5' y='2' width='10' height='10' rx='2.5' fill='%23000000' stroke='%232c2c34' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Crect x='4' y='1.5' width='12' height='7' rx='1' fill='%23f5eebd' fill-opacity='0.85' stroke='none'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  background-position: left center;
   pointer-events: none;
+  z-index: 5;
 }
 
-.film-sprockets-top {
-  margin-bottom: 8px;
+.film-sprockets-row-top {
+  top: 7px;
 }
 
-.film-sprockets-bottom {
-  margin-top: 8px;
+.film-sprockets-row-bottom {
+  bottom: 7px;
 }
 
-.film-edge-stamps {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: rgba(229, 184, 66, 0.7);
-  text-transform: uppercase;
-  user-select: none;
-  padding: 0 12px;
-}
-
+/* Film Frame Card - matching sidebar theme with gold-100 / gold-500 accent */
 .film-frame-card {
   position: relative;
   flex-shrink: 0;
-  background-color: #0b0b0d;
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  background-color: #000000;
+  border: 1.5px solid rgba(245, 238, 189, 0.35); /* #f5eebd gold-100 tone */
+  border-radius: 4px;
   padding: 10px 10px 14px 10px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .film-frame-card:hover {
-  border-color: rgba(197, 151, 26, 0.7);
-  box-shadow: 0 0 40px rgba(197, 151, 26, 0.4);
+  border-color: #c5971a;
+  box-shadow: 0 0 35px rgba(197, 151, 26, 0.45);
+  transform: scale(1.03);
 }
 
 .film-frame-header {
@@ -278,7 +269,7 @@ body.loading {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: rgba(229, 184, 66, 0.85);
+  color: #f5eebd;
   margin-bottom: 6px;
   text-transform: uppercase;
 }
@@ -290,7 +281,8 @@ body.loading {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 9px;
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(245, 238, 189, 0.65);
   margin-top: 6px;
 }
+
 

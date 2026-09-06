@@ -305,25 +305,15 @@ function initApp() {
     });
   });
 
-  // Tilted Photo Marquee Scroll Motion Animation
+  // Tilted Photo Marquee Scroll Motion Animation (Single Unstoppable Camera Film Reel)
   const marqueeRow1 = document.querySelector('.marquee-row-1');
-  const marqueeRow2 = document.querySelector('.marquee-row-2');
 
-  if (marqueeRow1 && marqueeRow2) {
-    // Row 1 glides left continuously
+  if (marqueeRow1) {
+    // Single film reel glides left continuously
     const tween1 = gsap.to(marqueeRow1, {
       xPercent: -50,
       repeat: -1,
-      duration: 35,
-      ease: "none"
-    });
-
-    // Row 2 glides right continuously
-    gsap.set(marqueeRow2, { xPercent: -50 });
-    const tween2 = gsap.to(marqueeRow2, {
-      xPercent: 0,
-      repeat: -1,
-      duration: 35,
+      duration: 45,
       ease: "none"
     });
 
@@ -333,7 +323,7 @@ function initApp() {
       const vel = Math.abs(e.velocity || 0);
       const targetTimeScale = 1 + Math.min(vel * 0.4, 3.0);
 
-      gsap.to([tween1, tween2], {
+      gsap.to(tween1, {
         timeScale: targetTimeScale,
         duration: 0.25,
         overwrite: "auto"
@@ -341,7 +331,7 @@ function initApp() {
 
       clearTimeout(scrollTimeout);
       scrollTimeout = window.setTimeout(() => {
-        gsap.to([tween1, tween2], {
+        gsap.to(tween1, {
           timeScale: 1,
           duration: 0.8,
           ease: "power2.out"
